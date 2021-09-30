@@ -62,4 +62,14 @@ describe("praxios", () => {
 
         expect(praxios.defaults.httpsAgent.proxyOptions.localAddress).toBeUndefined();
     });
+
+    test("empty string for proxy host options are assumed as proxy not being set", async () => {
+        process.env.PROXY_HOST = "";
+        process.env.PROXY_PORT = "";
+
+        const praxios = (await import("../src/index")).default;
+
+        expect(praxios.defaults.httpsAgent).toBeUndefined();
+        expect(praxios.defaults.proxy).toBeUndefined();
+    });
 });

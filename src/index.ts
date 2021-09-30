@@ -4,7 +4,7 @@ import * as tunnel from "tunnel";
 const { PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD } = process.env;
 
 const isProxyDefined = (): boolean => {
-    return PROXY_HOST !== undefined && PROXY_PORT !== undefined;
+    return !!PROXY_HOST && !!PROXY_PORT;
 };
 
 const getProxyAuth = (): string | undefined => {
