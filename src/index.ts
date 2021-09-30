@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as tunnel from "tunnel";
 
-const { PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD, NO_PROXY } = process.env;
+const { PROXY_HOST, PROXY_PORT, PROXY_USERNAME, PROXY_PASSWORD } = process.env;
 
 const isProxyDefined = (): boolean => {
     return PROXY_HOST !== undefined && PROXY_PORT !== undefined;
@@ -22,7 +22,6 @@ if (isProxyDefined()) {
         proxy: {
             host: PROXY_HOST!,
             port: Number(PROXY_PORT!),
-            localAddress: NO_PROXY,
             proxyAuth: getProxyAuth(),
         },
     });

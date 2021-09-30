@@ -50,4 +50,16 @@ describe("praxios", () => {
         expect(praxios).toHaveProperty("baseAxios");
         expect(praxios).toHaveProperty("tunnel");
     });
+
+    test("NO_PROXY env var is not considered in the tunnel agent", async () => {
+        process.env.PROXY_HOST = "dummy";
+        process.env.PROXY_PORT = "3128";
+        process.env.PROXY_USERNAME = "foo";
+        process.env.PROXY_PASSWORD = "bar";
+        process.env.NO_PROXY = "host1,host2";
+
+        const praxios = (await import("../src/index")).default;
+
+        expect(praxios.defaults.httpsAgent.proxyOptions.localAddress).toBeUndefined();
+    });
 });
