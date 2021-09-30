@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Safe-Security/praxios/compare/v1.0.0...v1.0.1) (2021-09-30)
+
+
+### Bug Fixes
+
+* remove handling of NO_PROXY ([#3](https://github.com/Safe-Security/praxios/issues/3)) ([2803e44](https://github.com/Safe-Security/praxios/commit/2803e44eb1bd2115688171f135765bfb4921f685))
+
 # 1.0.0 (2021-09-29)
 
 

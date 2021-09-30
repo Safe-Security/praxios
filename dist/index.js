@@ -5,7 +5,7 @@ var axios_1 = require("axios");
 exports.baseAxios = axios_1.default;
 var tunnel = require("tunnel");
 exports.tunnel = tunnel;
-var _a = process.env, PROXY_HOST = _a.PROXY_HOST, PROXY_PORT = _a.PROXY_PORT, PROXY_USERNAME = _a.PROXY_USERNAME, PROXY_PASSWORD = _a.PROXY_PASSWORD, NO_PROXY = _a.NO_PROXY;
+var _a = process.env, PROXY_HOST = _a.PROXY_HOST, PROXY_PORT = _a.PROXY_PORT, PROXY_USERNAME = _a.PROXY_USERNAME, PROXY_PASSWORD = _a.PROXY_PASSWORD;
 var isProxyDefined = function () {
     return PROXY_HOST !== undefined && PROXY_PORT !== undefined;
 };
@@ -21,7 +21,6 @@ if (isProxyDefined()) {
         proxy: {
             host: PROXY_HOST,
             port: Number(PROXY_PORT),
-            localAddress: NO_PROXY,
             proxyAuth: getProxyAuth(),
         },
     });
