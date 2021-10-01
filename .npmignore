@@ -4,3 +4,5 @@ coverage
 *.config.js
 tests
 .prettierrc
+.github
+.husky
