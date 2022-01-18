@@ -13,11 +13,14 @@ jobs:
               uses: actions/setup-node@v2
               with:
                 node-version: ${{ matrix.node-version }}
+            - name: Install dependencies
+              run: npx ci
             - name: Tests on ${{ matrix.node-version }}
-              uses: artiomtr/jest-coverage-report-action@v2.0-rc.5
+              uses: artiomtr/jest-coverage-report-action@v2.0-rc.6
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
                   package-manager: yarn
-                  test-script: yarn run test:coverage:jest      
+                  test-script: yarn run test:coverage:jest
+                  annotations: none
               env:
                 CI: true
